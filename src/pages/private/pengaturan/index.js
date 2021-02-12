@@ -8,6 +8,7 @@ function Pengaturan(){
         <Switch>
             <Route component={Pengguna} path={"/pengaturan/pengguna"} />
             <Route component={Toko} path={"/pengaturan/toko"} />
+            <Redirect to={"/pengaturan/pengguna"} />
         </Switch>
     )
 }
