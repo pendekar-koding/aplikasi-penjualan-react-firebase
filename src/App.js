@@ -9,10 +9,12 @@ import LupaPassword from './pages/lupa-password';
 import NotFound from './pages/not-found';
 import Private from "./pages/private";
 import PrivateRoute from "./components/privateRoute";
+import FirebaseProvider from './components/firebaseProvider';
 
 
 function App() {
   return (
+    <FirebaseProvider>
     <Router>
       <Switch>
           <PrivateRoute path={"/"} exact component={Private}/>
@@ -25,6 +27,7 @@ function App() {
           <Route component={NotFound} />
       </Switch>
     </Router>
+    </FirebaseProvider>
     
   );
 }
