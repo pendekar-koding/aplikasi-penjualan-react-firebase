@@ -17,7 +17,7 @@ import {Link, Redirect} from "react-router-dom";
 import isEmail from "validator/es/lib/isEmail";
 
 // firebase hook
-import {useFirebase} from "../../components/firebaseProvider";
+import {useFirebase} from "../../components/FirebaseProvider";
 
 //app components
 import AppLoading from "../../components/AppLoading";
@@ -86,7 +86,7 @@ function Login(props) {
 
                 switch (e.code) {
 
-                    case 'auth/user-not-found':
+                    case 'auth/user-404':
                         newError.email = 'Email tidak terdaftar';
                         break;
                     case 'auth/invalid-email':
