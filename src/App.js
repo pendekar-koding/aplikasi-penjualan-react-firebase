@@ -14,6 +14,7 @@ import FirebaseProvider from './components/firebaseProvider';
 //komponent material-ui
 import {CssBaseline} from "@material-ui/core";
 import {ThemeProvider} from "@material-ui/core";
+
 import theme from "./components/config/theme";
 
 
