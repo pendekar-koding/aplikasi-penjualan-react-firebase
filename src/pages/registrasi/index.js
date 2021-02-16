@@ -1,8 +1,10 @@
+import React, {useState} from "react";
 import {Button, Container, Paper, Typography, TextField, Grid} from "@material-ui/core";
 import useStyles from "./styles";
-import {Link} from "react-router-dom";
-import {useState} from "react";
+import {Link, Redirect} from "react-router-dom";
 import isEmail from "validator/es/lib/isEmail";
+import {useFirebase} from "../../components/firebaseProvider";
+import AppLoading from "../../components/AppLoading";
 
 
 function Registrasi() {
@@ -18,6 +20,10 @@ function Registrasi() {
         password:'',
         ulangi_password:''
     })
+
+    const [isSubmitting, setSubmitting] = useState(false);
+
+    const {auth, user, loading} = useFirebase();
 
     const handleChange = e=>{
         setForm({
@@ -52,15 +58,53 @@ function Registrasi() {
         return newError;
     }
 
-    const handleSubmit = e=>{
+    const handleSubmit = async e => {
         e.preventDefault();
-        const findError = validate();
+        const findErrors = validate();
 
-        if (Object.keys(findError).some(err=>err!=='')){
-            setError(findError);
+        if (Object.values(findErrors).some(err => err !== '')){
+            setError(findErrors);
+        } else {
+            try {
+                setSubmitting(true);
+                await auth.createUserWithEmailAndPassword(form.email, form.password)
+            } catch (e) {
+                const newError = {};
+                switch (e.code) {
+                    case 'auth/email-already-in-use':
+                        newError.email = 'Email sudah terdaftar';
+                        break;
+                    case 'auth/invalid-email':
+                        newError.email = 'Email tidak valid';
+                        break;
+                    case 'auth/weak-password':
+                        newError.password = 'Password lemah';
+                        break;
+                    case 'auth/operation-not-allowed':
+                        newError.email = "Metode email dan password tidak didukung"
+                        break;
+                    default:
+                        newError.email = 'Terjadi kesalahan silahkan coba lagi';
+                        break;
+                }
+                setError(newError);
+                setSubmitting(false);
+            }
         }
     }
-    console.log(form);
+
+    if (loading){
+        return <AppLoading />
+    }
+
+    if (user){
+
+        return <Redirect to={"/"} />
+    }
+
+
+
+    console.log(user);
     return <Container maxWidth={"xs"}>
         <Paper className={classes.paper}>
             <Typography
@@ -81,7 +125,8 @@ function Registrasi() {
                     value={form.email}
                     onChange={handleChange}
                     helperText={error.email}
-                    error={error.email?true:false}
+                    error={error.email ? true : false}
+                    disabled={isSubmitting}
                 />
                 <TextField
                     id={"password"}
@@ -94,7 +139,8 @@ function Registrasi() {
                     value={form.password}
                     onChange={handleChange}
                     helperText={error.password}
-                    error={error.email?true:false}
+                    error={error.email ? true : false}
+                    disabled={isSubmitting}
                 />
                 <TextField
                     id={"ulangi_password"}
@@ -107,7 +153,8 @@ function Registrasi() {
                     value={form.ulangi_password}
                     onChange={handleChange}
                     helperText={error.ulangi_password}
-                    error={error.email?true:false}
+                    error={error.email ? true : false}
+                    disabled={isSubmitting}
                 />
 
                 <Grid container className={classes.buttons}>
@@ -115,7 +162,9 @@ function Registrasi() {
                         <Button color={"primary"}
                                 variant={"contained"}
                                 type={"submit"}
-                                size={"large"}>
+                                size={"large"}
+                                disabled={isSubmitting}
+                        >
                             Daftar
                         </Button>
                     </Grid>
