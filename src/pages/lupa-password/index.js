@@ -1,23 +1,29 @@
-import React, {useState} from "react";
+import React, { useState } from 'react';
 
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
+// import komponen material-ui
+import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
-import useStyles from "./styles";
+// import styles
+import useStyles from './styles';
 
-import {Link, Redirect} from "react-router-dom";
+// react router dom
+import { Link, Redirect } from 'react-router-dom';
 
-import isEmail from "validator/es/lib/isEmail";
+import isEmail from 'validator/lib/isEmail';
 
-import {useFirebase} from "../../components/FirebaseProvider";
+// firebase hook
+import { useFirebase } from '../../components/FirebaseProvider';
 
-import AppLoading from "../../components/AppLoading";
+// app components
+import AppLoading from '../../components/AppLoading';
 
-import {useSnackbar} from "notistack";
+// notistack hook
+import { useSnackbar } from 'notistack';
 
 function LupaPassword() {
     const classes = useStyles();
@@ -87,7 +93,7 @@ function LupaPassword() {
 
                 switch (e.code) {
 
-                    case 'auth/user-404':
+                    case 'auth/user-not-found':
                         newError.email = 'Email tidak terdaftar';
                         break;
                     case 'auth/invalid-email':

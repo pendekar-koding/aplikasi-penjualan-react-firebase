@@ -1,17 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import Container from "@material-ui/core/Container";
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import Container from '@material-ui/core/Container';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import SignOutIcon from '@material-ui/icons/ExitToApp';
@@ -20,19 +20,21 @@ import StoreIcon from '@material-ui/icons/Store';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SettingsIcon from '@material-ui/icons/Settings';
 
-
 //styles
-import useStyles from "./styles";
+import useStyles from './styles';
 
-//react route
+//react router 
 import { Switch, Route } from 'react-router-dom';
 
-import Pengaturan from "./pengaturan";
-import Produk from "./produk";
-import Transaksi from "./transaksi";
-import Home from "./home";
+// komponen halaman private
+import Pengaturan from './pengaturan';
+import Produk from './produk';
+import Transaksi from './transaksi';
+import Home from './home';
 
-import { useFirebase } from "../../components/FirebaseProvider";
+//firebase hook
+import { useFirebase } from '../../components/FirebaseProvider';
+
 
 export default function Private() {
     const classes = useStyles();
@@ -186,3 +188,4 @@ export default function Private() {
         </div>
     );
 }
+

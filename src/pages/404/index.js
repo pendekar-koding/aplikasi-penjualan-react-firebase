@@ -1,14 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
+// material-ui
+import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import useStyles from "./styles";
+// styles
+import useStyles from './styles';
 
-function NotFound(){
+function NotFound() {
 
     const classes = useStyles();
     return (

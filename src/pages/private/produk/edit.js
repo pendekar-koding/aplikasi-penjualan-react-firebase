@@ -271,7 +271,7 @@ function EditProduk({ match }) {
             <Grid item xs={12} sm={6}>
                 <div className={classes.uploadFotoProduk}>
                     {form.foto &&
-                    <img src={form.foto} className={classes.previewFotoProduk} alt={`Foto Produk ${form.nama}`} />}
+                        <img src={form.foto} className={classes.previewFotoProduk} alt={`Foto Produk ${form.nama}`} />}
                     <input
                         className={classes.hideInputFile}
                         type="file"
@@ -287,9 +287,9 @@ function EditProduk({ match }) {
                         >Upload Foto <UploadIcon className={classes.iconRight} /></Button>
                     </label>
                     {error.foto &&
-                    <Typography color="error">
-                        {error.foto}
-                    </Typography>}
+                        <Typography color="error">
+                            {error.foto}
+                        </Typography>}
                 </div>
             </Grid>
             <Grid item xs={12}>
@@ -302,7 +302,7 @@ function EditProduk({ match }) {
                         variant="contained">
                         <SaveIcon className={classes.iconLeft} />
                         Simpan
-                    </Button>
+                </Button>
                 </div>
             </Grid>
         </Grid>

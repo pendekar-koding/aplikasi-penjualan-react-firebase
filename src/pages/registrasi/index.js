@@ -1,11 +1,26 @@
-import React, {useState} from "react";
-import {Button, Container, Paper, Typography, TextField, Grid} from "@material-ui/core";
-import useStyles from "./styles";
-import {Link, Redirect} from "react-router-dom";
-import isEmail from "validator/es/lib/isEmail";
-import {useFirebase} from "../../components/FirebaseProvider";
-import AppLoading from "../../components/AppLoading";
+import React, { useState } from 'react';
 
+// import komponen material-ui
+import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+
+// import styles
+import useStyles from './styles';
+
+// react router dom
+import { Link, Redirect } from 'react-router-dom';
+
+import isEmail from 'validator/lib/isEmail';
+
+// firebase hook
+import { useFirebase } from '../../components/FirebaseProvider';
+
+// app components
+import AppLoading from '../../components/AppLoading';
 
 function Registrasi() {
     const classes = useStyles();

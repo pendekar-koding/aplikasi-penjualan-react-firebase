@@ -1,26 +1,26 @@
-import REact, {useState} from "react";
+import React, { useState } from 'react';
 
 // import komponen material-ui
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
+import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
-//import styles
-import useStyles from "./styles";
+// import styles
+import useStyles from './styles';
 
 // react router dom
-import {Link, Redirect} from "react-router-dom";
+import { Link, Redirect } from 'react-router-dom';
 
-import isEmail from "validator/es/lib/isEmail";
+import isEmail from 'validator/lib/isEmail';
 
 // firebase hook
-import {useFirebase} from "../../components/FirebaseProvider";
+import { useFirebase } from '../../components/FirebaseProvider';
 
-//app components
-import AppLoading from "../../components/AppLoading";
+// app components
+import AppLoading from '../../components/AppLoading';
 
 function Login(props) {
     const { location } = props;
@@ -86,7 +86,7 @@ function Login(props) {
 
                 switch (e.code) {
 
-                    case 'auth/user-404':
+                    case 'auth/user-not-found':
                         newError.email = 'Email tidak terdaftar';
                         break;
                     case 'auth/invalid-email':
@@ -180,7 +180,7 @@ function Login(props) {
                 <div className={classes.forgotPassword}>
                     <Typography component={Link} to="/lupa-password" >
                         Lupa Password?
-                    </Typography>
+                </Typography>
                 </div>
 
 

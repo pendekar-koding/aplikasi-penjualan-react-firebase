@@ -4,7 +4,8 @@ import React, { useRef, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import {useFirebase} from "../../../components/FirebaseProvider";
+import { useFirebase } from '../../../components/FirebaseProvider';
+
 // styles
 import useStyles from './styles/pengguna';
 

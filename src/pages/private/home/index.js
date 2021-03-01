@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-
+import React, { useState, useEffect } from 'react';
+//material-ui
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -21,19 +21,19 @@ import TableCell from '@material-ui/core/TableCell';
 import ImageIcon from '@material-ui/icons/Image';
 import SaveIcon from '@material-ui/icons/Save';
 
-import {useFirebase} from "../../../components/FirebaseProvider";
+import { useFirebase } from '../../../components/FirebaseProvider';
 
 import { useCollection } from 'react-firebase-hooks/firestore';
+
 import AppPageLoading from '../../../components/AppPageLoading';
 
-import {useSnackbar} from "notistack";
-import {currency} from "../../../utils/formatter";
+import { useSnackbar } from 'notistack';
+
+import { currency } from '../../../utils/formatter';
 import format from 'date-fns/format';
-import useStyles from "./styles";
 
-
-function Home(){
-
+import useStyles from './styles';
+function Home() {
     const classes = useStyles();
     const { firestore, user } = useFirebase();
     const { enqueueSnackbar } = useSnackbar();
@@ -298,7 +298,7 @@ function Home(){
                 </Table>
             </Grid>
             <Grid item
-                  xs={12} md={4}>
+                xs={12} md={4}>
                 <List
                     className={classes.produkList}
                     component="nav"

@@ -1,11 +1,17 @@
-import React from "react";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Paper from "@material-ui/core/Paper";
-import { Switch, Route, Redirect } from "react-router-dom";
-import Pengguna from "./pengguna";
-import Toko from "./toko";
-import useStyles from "./styles";
+import React from 'react';
+
+//material-ui
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Paper from '@material-ui/core/Paper';
+
+import { Switch, Route, Redirect } from 'react-router-dom';
+// komponen halaman pengguna
+import Pengguna from './pengguna';
+import Toko from './toko';
+
+// styles
+import useStyles from './styles';
 
 function Pengaturan(props) {
 
