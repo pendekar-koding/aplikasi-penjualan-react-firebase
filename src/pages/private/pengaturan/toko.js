@@ -136,7 +136,7 @@ function Toko() {
                 required
                 fullWidth
                 onChange={handleChange}
-                error={error.nama ? true : false}
+                error={!!error.nama}
                 helperText={error.nama}
                 disabled={isSubmitting}
 

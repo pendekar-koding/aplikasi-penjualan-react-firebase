@@ -8,7 +8,7 @@ import Login from './pages/login';
 import LupaPassword from './pages/lupa-password';
 import NotFound from './pages/404';
 import Private from './pages/private';
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from "./components/privateRoute";
 
 // firebase context provider
 import FirebaseProvider from './components/FirebaseProvider';
